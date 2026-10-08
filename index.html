@@ -4,17 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nouran Tarek Soliman - Applied Linguistics Researcher</title>
-    <meta name="description" content="Academic portfolio of Nouran Tarek Soliman, Ph.D. candidate in Applied Linguistics at AUC. Research in sociolinguistics, language ideologies, Arabic diglossia, and media translation studies.">
+    <meta name="description" content="Academic portfolio of Nouran Tarek Soliman, Ph.D. candidate in Applied Linguistics at Alexandria University, in collaboration with the Arab Academy for Science, Technology, and Maritime Transport. Research in sociolinguistics, language ideologies, Arabic diglossia, and media translation studies.">
+    <link rel="canonical" href="https://nouransoliman.me/">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nouransoliman.me/">
     <meta property="og:title" content="Nouran Tarek Soliman — Applied Linguistics Researcher">
     <meta property="og:description" content="Ph.D. candidate in Applied Linguistics. Research in sociolinguistics, language ideologies, Arabic diglossia, and media translation studies.">
-    <meta property="og:image" content="./assets/images/profile_pic.webp">
+    <meta property="og:image" content="https://nouransoliman.me/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:alt" content="Portrait of Nouran Tarek Soliman">
     <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://nouransoliman.me/assets/images/og-image.jpg">
     <meta name="twitter:title" content="Nouran Tarek Soliman — Applied Linguistics Researcher">
     <meta name="twitter:description" content="Ph.D. candidate in Applied Linguistics. Research in sociolinguistics, language ideologies, Arabic diglossia, and media translation studies.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Crimson+Pro:wght@200;300;400;500;600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Crimson+Pro:wght@300;400;500;600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add('js');</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Nouran Tarek Soliman",
+            "description": "Ph.D. candidate in Applied Linguistics. Research in sociolinguistics, language ideologies, Arabic diglossia, and media translation studies.",
+            "url": "https://nouransoliman.me/",
+            "image": "https://nouransoliman.me/assets/images/og-image.jpg",
+            "sameAs": [
+                "https://www.linkedin.com/in/nouransoliman",
+                "https://orcid.org/0009-0004-7353-7631",
+                "https://scholar.google.com/citations?user=fPMXcKUAAAAJ&hl=en"
+            ]
+        }
+    }
+    </script>
     <!-- PlumX Metrics Widget -->
     <!-- <script type="text/javascript" src="https://plu.mx/widget-popup.js"></script> -->
     <script type="text/javascript" src="./js/widget-summary.js"></script>
@@ -180,7 +205,30 @@
         }
 
         /* Navigation */
-        nav {
+        html { scroll-padding-top: 0; }
+
+        @media (prefers-reduced-motion: no-preference) {
+            html { scroll-behavior: smooth; }
+        }
+
+        section[id], header[id] { scroll-margin-top: 70px; }
+
+        .skip-link {
+            position: absolute;
+            left: 16px;
+            top: -60px;
+            background: var(--primary);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 4px;
+            z-index: 200;
+            font-family: 'Crimson Pro', serif;
+            text-decoration: none;
+        }
+
+        .skip-link:focus { top: 12px; }
+
+        .site-nav {
             position: sticky;
             top: 0;
             background: rgba(253, 251, 247, 0.98);
@@ -188,9 +236,12 @@
             border-bottom: 1px solid var(--border);
             z-index: 100;
             box-shadow: 0 2px 20px var(--shadow);
+            transition: transform 0.3s ease;
         }
 
-        nav ul {
+        .nav-bar, .nav-pin { display: none; }
+
+        .site-nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
@@ -200,11 +251,11 @@
             padding: 20px;
         }
 
-        nav li {
+        .site-nav li {
             margin: 0 25px;
         }
 
-        nav a {
+        .site-nav a {
             font-family: 'Crimson Pro', serif;
             text-decoration: none;
             color: var(--text);
@@ -216,7 +267,7 @@
             transition: color 0.3s;
         }
 
-        nav a::after {
+        .site-nav a::after {
             content: '';
             position: absolute;
             bottom: -5px;
@@ -227,14 +278,73 @@
             transition: width 0.3s;
         }
 
-        nav a:hover,
-        nav a.active {
+        .site-nav a:hover,
+        .site-nav a.active {
             color: var(--secondary);
         }
 
-        nav a:hover::after,
-        nav a.active::after {
+        .site-nav a:hover::after,
+        .site-nav a.active::after {
             width: 100%;
+        }
+
+        /* Phones: slim bar + menu; auto-hides on scroll down unless the visitor pins it */
+        @media (max-width: 768px) {
+            section[id], header[id] { scroll-margin-top: 56px; }
+
+            .site-nav.nav-hidden { transform: translateY(-100%); }
+
+            .nav-bar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 48px;
+                padding: 0 16px;
+            }
+
+            .nav-brand {
+                font-size: 1rem;
+                letter-spacing: 1px;
+            }
+
+            .nav-toggle, .nav-pin button {
+                font-family: 'Crimson Pro', serif;
+                font-size: 1rem;
+                font-weight: 500;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                color: var(--secondary);
+                background: transparent;
+                border: 1px solid var(--secondary);
+                border-radius: 4px;
+                padding: 6px 14px;
+                min-height: 36px;
+                cursor: pointer;
+            }
+
+            .site-nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 4px 16px 12px;
+                border-top: 1px solid var(--border);
+                max-height: calc(100vh - 60px);
+                overflow-y: auto;
+            }
+
+            .site-nav.open ul { display: flex; }
+
+            .site-nav li { margin: 0; }
+
+            .site-nav li a {
+                display: block;
+                padding: 12px 4px;
+            }
+
+            .site-nav li a::after { display: none; }
+
+            .nav-pin { display: block; margin-top: 8px; }
+            .nav-pin button { width: 100%; text-transform: none; }
         }
 
         /* Container */
@@ -289,6 +399,11 @@
             gap: 60px;
             align-items: start;
         }
+
+        .about-grid > * { min-width: 0; }
+
+        .contact-item { flex-wrap: wrap; row-gap: 2px; }
+        .contact-item a { overflow-wrap: anywhere; }
 
         .about-content h3 {
             font-family: 'Cormorant Garamond', serif;
@@ -446,6 +561,15 @@
             margin-bottom: 10px;
         }
 
+        .plumx-fallback {
+            font-family: 'Crimson Pro', serif;
+            color: var(--text-light);
+        }
+
+        .plumx-fallback a {
+            color: var(--secondary);
+        }
+
         /* Research Interests */
         .research-grid {
             display: grid;
@@ -595,13 +719,13 @@
         }
 
         /* Scroll animations */
-        .fade-in {
+        .js .fade-in {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .fade-in.visible {
+        .js .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -996,35 +1120,65 @@
             .progress-dots { display: none; }
         }
 
+
+        /* Print */
+        @media print {
+            .site-nav, .progress-dots, .skip-link, .bg-ornament, .hero-glow,
+            .section-divider, .plumx-container, .pub-link { display: none !important; }
+
+            body { background: white; color: black; }
+            .js .fade-in { opacity: 1 !important; transform: none !important; }
+            header { background: none !important; color: black !important; padding: 0 0 16px; }
+            header *, footer, footer p { color: black !important; }
+            footer { background: none; margin-top: 24px; padding: 16px 0; }
+            section { background: none !important; }
+            .container { padding: 20px 0; max-width: none; }
+            .publication-card, .swiss-entry, .cert-card, .research-card, .contact-info {
+                box-shadow: none !important;
+                break-inside: avoid;
+            }
+            a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
+            .pub-badge a::after, h2 a::after { content: none; }
+        }
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <!-- Background ornaments -->
     <div class="bg-ornament bg-ornament-1"></div>
     <div class="bg-ornament bg-ornament-2"></div>
 
     <!-- Header -->
-    <header>
+    <header id="top">
         <div class="hero-glow" aria-hidden="true"></div>
         <div class="hero-watermark" aria-hidden="true">نوران طارق سليمان</div>
         <div class="header-content">
-            <img src="./assets/images/profile_pic-cmpr.png" alt="Nouran Tarek Soliman" class="profile-img" id="profileImage">
+            <picture>
+                <source srcset="./assets/images/profile_pic.webp" type="image/webp">
+                <img src="./assets/images/profile_pic-cmpr.png" alt="Nouran Tarek Soliman" class="profile-img" id="profileImage" width="360" height="360">
+            </picture>
             <div class="subtitle">English Linguistics Expert</div>
             <h1>Nouran Tarek Soliman</h1>
             <div class="academic-title">Applied Linguistics Ph.D. Candidate</div>
-            <div class="hero-institution">AAST · AUC</div>
+            <div class="hero-institution">AU · AASTMT</div>
         </div>
     </header>
 
     <!-- Navigation -->
-    <nav>
-        <ul>
+    <nav class="site-nav" id="siteNav" aria-label="Main">
+        <div class="nav-bar">
+            <a class="nav-brand" href="#top">Nouran Soliman</a>
+            <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+        </div>
+        <ul id="navLinks">
             <li><a href="#about">About</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#teaching">Teaching</a></li>
             <li><a href="#research">Research</a></li>
             <li><a href="#publications">Publications</a></li>
             <li><a href="#credentials">Credentials</a></li>
+            <li class="nav-pin"><button type="button" id="navPin" aria-pressed="false">Keep this bar visible: off</button></li>
         </ul>
     </nav>
 
@@ -1038,6 +1192,7 @@
         <button class="progress-dot" data-target="credentials" aria-label="Credentials section"></button>
     </nav>
 
+    <main id="main">
     <!-- About Section -->
     <section id="about">
         <div class="container">
@@ -1060,6 +1215,14 @@
                     <div class="contact-item">
                         <span class="contact-label">LinkedIn:</span>
                         <a href="https://www.linkedin.com/in/nouransoliman" target="_blank" rel="noopener noreferrer">in/nouran-soliman</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">ORCID:</span>
+                        <a href="https://orcid.org/0009-0004-7353-7631" target="_blank" rel="noopener noreferrer">0009-0004-7353-7631</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Google Scholar:</span>
+                        <a href="https://scholar.google.com/citations?user=fPMXcKUAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Citations profile</a>
                     </div>
                     <div class="contact-item">
                         <span class="contact-label">Publications:</span>
@@ -1090,7 +1253,7 @@
                 <div class="swiss-rule"></div>
                 <div class="swiss-entry">
                     <h4>Ph.D. in Applied Linguistics</h4>
-                    <div class="inst">Arab Academy for Science, Technology &amp; Maritime Transport</div>
+                    <div class="inst">Alexandria University, in collaboration with the Arab Academy for Science, Technology &amp; Maritime Transport</div>
                     <div class="meta">College of Language &amp; Communication<span class="gpa">GPA 4.0</span></div>
                 </div>
 
@@ -1226,7 +1389,7 @@
                 <h2 class="section-title">Publications</h2>
                 <p class="section-subtitle">Peer-reviewed research contributions to the field of applied linguistics</p>
             </div>
-            <div class="publications-timeline fade-in">
+            <div class="publications-timeline">
                 <div class="pub-date-col">
                     <div class="pub-date-marker" style="padding-top:4px;">Dec<br>2024</div>
                     <div style="flex:1;"></div>
@@ -1268,7 +1431,7 @@
                         <h3><a href="https://fount.aucegypt.edu/etds/2234/" target="_blank" rel="noopener noreferrer">Language Ideologies and Attitudes Towards Dubbing Disney Movies into Arabic</a></h3>
                         <p><strong>Publisher:</strong> AUC Knowledge Fountain</p>
                         <p>Master’s thesis examining online stance-taking and indirect language attitudes among Arab social media users regarding Disney dubbing into MSA and ECA. The VGT experiment revealed that Mashreq and Peninsula respondents showed closer language attitudes to each other than to Maghreb counterparts, offering nuanced regional insight into Arabic language ideology.</p>
-                        <div class="plumx-container">
+                        <div class="plumx-container" data-plumx-url="https://plu.mx/plum/a/?bepress_url_id=https%3A%2F%2Ffount.aucegypt.edu%2Fetds%2F2234">
                             <div class="plumx-label">📊 Article Metrics & Impact</div>
                             <div class="plumx-summary">
                                 <a href="https://plu.mx/plum/a/?bepress_url_id=https%3A%2F%2Ffount.aucegypt.edu%2Fetds%2F2234" data-hide-print="true" class="plumx-details" data-site="plum" data-hide-when-empty="true">Investigating Language Ideologies and Attitudes Towards Dubbing Disney Movies into Arabic</a>
@@ -1343,6 +1506,8 @@
 
     <div class="section-divider" aria-hidden="true"><span>✦</span></div>
 
+    </main>
+
     <!-- Footer -->
     <footer>
         <p>© 2026 Nouran Tarek Soliman. All rights reserved.</p>
@@ -1350,25 +1515,23 @@
     </footer>
 
     <script>
-        // Scroll animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 100);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+        // Scroll animation (content stays visible if IntersectionObserver is missing)
+        const fadeEls = document.querySelectorAll('.fade-in');
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+            fadeEls.forEach(el => observer.observe(el));
+        } else {
+            fadeEls.forEach(el => el.classList.add('visible'));
+        }
 
         // Language bar animation
         const langBars = document.querySelectorAll('.lang-bar-fill');
@@ -1383,14 +1546,15 @@
         langBars.forEach(bar => langObserver.observe(bar));
 
         // Active nav state
-        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        const siteNav = document.getElementById('siteNav');
+        const navLinks = siteNav.querySelectorAll('a[href^="#"]:not(.nav-brand)');
         const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
 
         const navObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     navLinks.forEach(a => a.classList.remove('active'));
-                    const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+                    const active = siteNav.querySelector(`a[href="#${entry.target.id}"]`);
                     if (active) active.classList.add('active');
 
                     document.querySelectorAll('.progress-dot').forEach(d => d.classList.remove('active'));
@@ -1405,22 +1569,63 @@
         document.querySelectorAll('.progress-dot').forEach(dot => {
             dot.addEventListener('click', () => {
                 const target = document.getElementById(dot.dataset.target);
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (target) target.scrollIntoView({ block: 'start' });
             });
         });
 
-        // Smooth scrolling for navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+        // Mobile nav: menu button, auto-hide on scroll down, optional pin
+        const navToggle = document.getElementById('navToggle');
+        const navPin = document.getElementById('navPin');
+        let pinned = false;
+        try { pinned = localStorage.getItem('navPinned') === '1'; } catch (e) {}
+
+        function renderPin() {
+            navPin.setAttribute('aria-pressed', String(pinned));
+            navPin.textContent = 'Keep this bar visible: ' + (pinned ? 'on' : 'off');
+            if (pinned) siteNav.classList.remove('nav-hidden');
+        }
+        renderPin();
+
+        function setMenu(open) {
+            siteNav.classList.toggle('open', open);
+            navToggle.setAttribute('aria-expanded', String(open));
+            if (open) siteNav.classList.remove('nav-hidden');
+        }
+
+        navToggle.addEventListener('click', () => setMenu(!siteNav.classList.contains('open')));
+        navPin.addEventListener('click', () => {
+            pinned = !pinned;
+            try { localStorage.setItem('navPinned', pinned ? '1' : '0'); } catch (e) {}
+            renderPin();
+        });
+        siteNav.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => setMenu(false)));
+        siteNav.addEventListener('focusin', () => siteNav.classList.remove('nav-hidden'));
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && siteNav.classList.contains('open')) { setMenu(false); navToggle.focus(); }
+        });
+
+        let lastY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            if (window.matchMedia('(max-width: 768px)').matches && !pinned && !siteNav.classList.contains('open')) {
+                if (y > lastY + 6 && y > 120) siteNav.classList.add('nav-hidden');
+                else if (y < lastY - 6 || y <= 120) siteNav.classList.remove('nav-hidden');
+            }
+            lastY = y;
+        }, { passive: true });
+
+        // PlumX: if the live widget shows nothing, replace the empty frame with a link (no static numbers)
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.plumx-container').forEach(box => {
+                    const slot = box.querySelector('.plumx-summary');
+                    const first = slot && slot.firstElementChild;
+                    const rendered = first && !(first.matches('a.plumx-details') && first.children.length === 0);
+                    if (rendered || !slot) return;
+                    const href = box.dataset.plumxUrl;
+                    slot.innerHTML = '<p class="plumx-fallback">Live metrics are not showing right now. <a href="' + href + '" target="_blank" rel="noopener noreferrer">View them on PlumX →</a></p>';
+                });
+            }, 6000);
         });
     </script>
 </body>
